@@ -1,10 +1,11 @@
-package com.polarbookshop.catalogservice.domain;
+package org.example.domain;
 
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-import com.polarbookshop.catalogservice.config.DataConfig;
+import org.assertj.core.api.Assertions;
+import org.example.config.DataConfig;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,14 +51,14 @@ class BookRepositoryJdbcTests {
 
         Optional<Book> actualBook = bookRepository.findByIsbn(bookIsbn);
 
-        assertThat(actualBook).isPresent();
+        Assertions.assertThat(actualBook).isPresent();
         assertThat(actualBook.get().isbn()).isEqualTo(book.isbn());
     }
 
     @Test
     void findBookByIsbnWhenNotExisting() {
         Optional<Book> actualBook = bookRepository.findByIsbn("1234561238");
-        assertThat(actualBook).isEmpty();
+        Assertions.assertThat(actualBook).isEmpty();
     }
 
     @Test

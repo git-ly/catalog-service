@@ -1,8 +1,8 @@
-package com.polarbookshop.catalogservice.web;
+package org.example.web;
 
 import java.time.Instant;
 
-import com.polarbookshop.catalogservice.domain.Book;
+import org.example.domain.Book;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;

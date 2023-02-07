@@ -1,10 +1,9 @@
-package com.polarbookshop.catalogservice.demo;
+package org.example.demo;
 
 import java.util.List;
 
-import com.polarbookshop.catalogservice.domain.Book;
-import com.polarbookshop.catalogservice.domain.BookRepository;
-
+import org.example.domain.Book;
+import org.example.domain.BookRepository;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.EventListener;

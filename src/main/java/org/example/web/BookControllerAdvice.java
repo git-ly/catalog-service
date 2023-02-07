@@ -1,11 +1,10 @@
-package com.polarbookshop.catalogservice.web;
+package org.example.web;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.polarbookshop.catalogservice.domain.BookAlreadyExistsException;
-import com.polarbookshop.catalogservice.domain.BookNotFoundException;
-
+import org.example.domain.BookAlreadyExistsException;
+import org.example.domain.BookNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
