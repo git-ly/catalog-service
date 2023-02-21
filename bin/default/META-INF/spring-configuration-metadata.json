@@ -1,0 +1,18 @@
+{
+  "groups": [
+    {
+      "name": "polar",
+      "type": "org.example.config.PolarProperties",
+      "sourceType": "org.example.config.PolarProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "polar.greeting",
+      "type": "java.lang.String",
+      "description": "A message to welcome users.",
+      "sourceType": "org.example.config.PolarProperties"
+    }
+  ],
+  "hints": []
+}
