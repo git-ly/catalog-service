@@ -3,12 +3,15 @@ package com.example.catalogservice.web;
 import com.example.catalogservice.domain.Book;
 import com.example.catalogservice.domain.BookService;
 import jakarta.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("books")
 public class BookController {
+    private static final Logger log = LoggerFactory.getLogger(BookController.class);
     private final BookService bookService;
 
     public BookController(BookService bookService){
@@ -17,11 +20,12 @@ public class BookController {
 
     @GetMapping
     public Iterable<Book> get(){
+        log.info("Fetching the list of books in the catalog");
         return bookService.viewBookList();
     }
 
     @GetMapping("{isbn}")
-    public Book getByIsbn(@PathVariable String isbn){
+    public Book getByIsbn(@PathVariable("isbn") String isbn){
         return bookService.viewBookDetails(isbn);
     }
 
@@ -33,12 +37,12 @@ public class BookController {
 
     @DeleteMapping("{isbn}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable String isbn){
+    public void delete(@PathVariable("isbn") String isbn){
         bookService.removeBookFromCatalog(isbn);
     }
 
     @PutMapping("{isbn}")
-    public Book put(@PathVariable String isbn,@Valid @RequestBody Book book){
+    public Book put(@PathVariable("isbn") String isbn,@Valid @RequestBody Book book){
         return bookService.editBookDetails(isbn,book);
     }
 }
